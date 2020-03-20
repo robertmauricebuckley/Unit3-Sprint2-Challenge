@@ -45,6 +45,7 @@ curs.execute(query2)
 print(curs.fetchall())
 
 # 2025.0	1987.77777777778
+# 37.3
 
 
 
