@@ -4,7 +4,7 @@ import sqlite3
 DB_FILEPATH = os.path.join(os.path.dirname(__file__), "..", "northwind_small.sqlite3")
 
 conn = sqlite3.connect(DB_FILEPATH)
-conn.row_factory = sqlite3.Row
+
 print("CONNECTION:", conn)
 
 curs = conn.cursor()
@@ -21,7 +21,8 @@ LIMIT 10;
 """
 
 curs.execute(query)
-print(curs.fetchall())
+result = curs.fetchall()
+print(result)
 
 # Côte de Blaye	263.5
 # Thüringer Rostbratwurst	123.79
@@ -42,7 +43,8 @@ SELECT AVG (HireDate), AVG (BirthDate)
 FROM Employee
 """
 curs.execute(query2)
-print(curs.fetchall())
+result = curs.fetchall()
+print(result)
 
 # 2025.0	1987.77777777778
 # 37.3
@@ -61,7 +63,8 @@ ORDER BY UnitPrice DESC
 LIMIT 10
 """
 curs.execute(query3)
-print(curs.fetchall())
+result = curs.fetchall()
+print(result)
 
 # 18	Côte de Blaye	Aux joyeux ecclésiastiques	263.5
 # 12	Thüringer Rostbratwurst	Plutzer Lebensmittelgroßmärkte AG	123.79
@@ -88,7 +91,8 @@ ORDER BY COUNT(CategoryName) DESC
 LIMIT 1
 """
 curs.execute(query4)
-print(curs.fetchall())
+result = curs.fetchall()
+print(result)
 
 # 13	Confections
 
